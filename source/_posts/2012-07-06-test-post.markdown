@@ -1,0 +1,10 @@
+---
+layout: post
+title: "test post"
+date: 2012-07-06 21:35
+comments: true
+categories: about
+---
+What you see is a test post for my new blog on Github.
+
+I will write some blogs about techniques here.
