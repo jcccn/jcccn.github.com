@@ -5,18 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>个人简历 - jcccn</title>
+  <title>Android中的SharedPreferences陷阱 - jcccn</title>
   <meta name="author" content="jcccn">
 
   
-  <meta name="description" content="个人简历 Aug 30th, 2012 基本信息 姓名：蒋春成
-性别：男
-出生年月：1989年10月
-学历：本科2011届
-毕业院校：电子科技大学 计算机科学与技术专业
-电话：186 8393 6533
-E-mail：jccuestc@gmail.com
-最近工作：淘宝（中国）软件有限公司 &hellip;">
+  <meta name="description" content="将保存SharedPreferences的xml文件删除了，能够彻底删除对应的SharedPreferences吗？ 一次开发过程中，一个功能是需要将程序缓存清除掉，包括SharedPreferences文件。 第一次做的方式是，把相关的文件删除。但是发现有问题：程序退出后， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +18,7 @@ E-mail：jccuestc@gmail.com
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jcccn.github.com/resume/">
+  <link rel="canonical" href="http://jcccn.github.com/blog/a-trap-in-sharedpreferences/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -82,74 +75,15 @@ E-mail：jccuestc@gmail.com
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">个人简历</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-30T15:23:00+08:00" pubdate data-updated="true">Aug 30<span>th</span>, 2012</time></p>
-  </header>
-  
-  <h2>基本信息</h2>
-
-<ul>
-<li>姓名：蒋春成</li>
-<li>性别：男</li>
-<li>出生年月：1989年10月</li>
-<li>学历：本科2011届</li>
-<li>毕业院校：电子科技大学 计算机科学与技术专业</li>
-<li>电话：186 8393 6533</li>
-<li>E-mail：jccuestc@gmail.com</li>
-<li>最近工作：淘宝（中国）软件有限公司  Android开发工程师</li>
-</ul>
-
-
-<h2>求职意向</h2>
-
-<ul>
-<li>职位：移动终端软件工程师</li>
-<li>工作地点：四川省成都市</li>
-</ul>
-
-
-<h2>工作与成长经历</h2>
-
-<ul>
-<li>2011.7~2012.7，淘宝（中国）软件有限公司下属无线事业部，从事Android淘宝客户端开发工作。</li>
-<li>2010.12~2011.4，淘宝（中国）软件有限公司实习，从事K-Java和iOS产品的开发工作。</li>
-<li>2010.4~2010.9，成都透客科技有限公司，兼职开发iOS平台的游戏和应用产品。</li>
-<li>2009.2~2010.4，电子科技大学飞凡动力工作室，学习iPhone程序开发并成为核心开发成员。</li>
-</ul>
-
-
-<h2>项目经验</h2>
-
-<p>&emsp;从2009年至今，专注于移动平台上的程序开发。<br/>
-&emsp;2011年7月，正式入职淘宝网，加入无线客户端Android项目组。7月~8月，接受淘宝Android客户端的厂商适配工作，在适配期间和手机厂商沟通良好，适配机型成功率100%，也是项目组中公认的适配工作做的最好的。在Android淘宝的2.5(闪屏、缓存清理、推送、首页促销显示增强等)、3.0(UI全面改版、九宫格导航、滑动导航栏、新手引导功能等)、3.1(图片内存优化、流量优化、购物车等)、3.2(新风格的整体UI、详情和下单改造等)等版本中，完成了自己负责模块的设计和开发。<br/>
-&emsp;2011年初，在淘宝网实习期间，主要从事手机淘宝k-java版本的维护、优化和升级工作。独立完成了3.3版本的新版首页、收藏夹改造等开发任务。4月初，完成淘宝卖家营销工具《淘宝精品》iPhone版本的升级开发工作，产品的UI交互和下载与收藏管理等功能得到加强，新增了微博分享等功能。<br/>
-&emsp;2010年，在成都透客科技有限公司以兼职身份，完成公司基于phpwind的技术交流论坛cocoatoucher.com、内部基于SVN的代码版本管理系统、基于wiki的项目管理系统的创建并持续维护。完成上海大众汽车广告游戏项目《晶锐大冒险》iPhone版的开发，设计开发了《Sprite Adventure》《Defense of the Earth》、《Go Toucher》第一版等iOS平台的自有产品。<br/>
-&emsp;2009年至2010年，加入飞电子科技大学凡动力工作室，开发了多个iPhone平台的游戏和应用。期间，基于cocos2d和chipmunk引擎开发的游戏《Deflector Pool》获得苹果全国高校学生开发作品大赛获得三等奖。所在工作室被学校评为优秀创业团队，我被评为优秀创业个人。</p>
-
-<h2>自我评价</h2>
-
-<p>&emsp;作为一个软件工程师，我拥有良好的编码风格和习惯，先设计后开发，坚持代码review，严格自测，开发质量较高。喜欢读文档，喜欢看源码，喜欢探究现象的原理。在工作中，先团队后个人，沟通积极，按照优先级处理事情。我热爱移动互联网，我相信自己完全能胜任客户端软件的研发工作。</p>
-
-  
-    <footer>
+    
+      <h1 class="entry-title">Android中的SharedPreferences陷阱</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -161,13 +95,98 @@ E-mail：jccuestc@gmail.com
   
 
 
-<time datetime="2012-08-30T15:23:00+08:00" pubdate data-updated="true">Aug 30<span>th</span>, 2012</time>
+<time datetime="2012-07-14T16:16:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>将保存SharedPreferences的xml文件删除了，能够彻底删除对应的SharedPreferences吗？</p>
+
+<p>一次开发过程中，一个功能是需要将程序缓存清除掉，包括SharedPreferences文件。</p>
+
+<p>第一次做的方式是，把相关的文件删除。但是发现有问题：程序退出后，再次进入程序仍然能够读取到应该被删除掉的SharedPreferences的值，但是DDMS查看要删除的pref文件确实都不在了。</p>
+
+<p>为什么文件都不在了还能够取到值呢？</p>
+
+<p>换了另一种清除SharedPreferences的方式：使用SharedPreferences.Editor的commit方法。结果证明，这样做是能够起作用的，调用后不退出程序都马上生效。</p>
+
+<p>既然这样，第一个反应就是取SharedPreferences是首先内存缓存中取的。那为什么重启程序都还能去得到呢？</p>
+
+<p>就进入源代码中看了一下，有几下几个地方可以了解了解：</p>
+
+<p>取SharedPreferences实际上是在ContextImpl这个类中完成的。</p>
+
+<ul>
+<li><p>1、context.getSharedPreferences(pref_name, mode)的流程：</p>
+
+<ul>
+<li>A 在sSharedPrefs这个map(同步的)中以pref_name为键取SharedPreferencesImp对象sp。如果sp不为空并且对应的pref文件未被异常修改，就返回这个对象。否则进入B。</li>
+<li>B 如果sp为空，重新生成一个SharedPreferenceImp对象并且加入到sSharedPrefs这个map中。</li>
+<li>C 同步的：从pref文件中解析出map对象并用之替换SharedPreferenceImp对象中原有的存放pref键值对的mMap成员对象。如果pref文件解析异常导致map为null，就保持原有对象而不替换。 如果备份的pref文件(…pref_name.xml.bak)存在，就使用备份文件。</li>
+<li>D 返回SharedPreferenceImp对象sp。
+注意：sSharedPrefs在程序中是静态的：private static final HashMap sSharedPrefs = new HashMap(); 如果退出了程序但Context没有被清掉，那么下次进入程序仍然可能取到本应被删除掉的值。</li>
+</ul>
+</li>
+<li><p>2、从SharedPreference中取值getString(String key, String defValue)：
+从SharedPreferencesImp对象的mMap成员对象中根据key取出相应的对象v。如果取得的对象v为空，返回默认对象defValue；否则，返回对象v。</p></li>
+<li><p>3、commit过程：</p>
+
+<ul>
+<li>A 在内存中提交，即用要提交的map去刷新已有的mMap对象。如果map对象中某个键的值指向editer对象自身，就代表要移除这个键值对。</li>
+<li>B 将步骤A返回的MemoryCommitResult对象加入到写入本地的队列中，写入本地文件。这一步目前是在同一个线程中做的，因为性能表现得很良好。在写入文件前，如果同名文件已经存在，则会原文件重命名为备份文件名，如果写入成功，才删除bak备份文件。</li>
+<li>C 通知SharedPreferences的监听状态改变了。返回提交是否内存成功的状态。</li>
+</ul>
+</li>
+<li><p>4、EditorImpl内部类：
+内部有一个Map成员对象mModified，用来保存将要提交的pref键值。
+apply方法与commit方法的区别：前者先提交到内存中，再异步写到文件，并且不需要返回写入成功与否的状态；后者同步写入内存和文件。</p></li>
+<li><p>5、MemoryCommitResult内部类：
+用来存放Editor提交到内存的返回状态，包括是否有键值改变、将要写入文件中的map对象，写入文件成功与否等。</p></li>
+</ul>
+
+
+<p>总结一下：要想及时并安全清除SharedPreferences一定要使用Editor去clear并commit，不要直接暴力地删除其xml文件。</p>
+
+<p>测试用的源代码(GBK编码)：<a href="http://www.kuaipan.cn/file/id_80676665698551.htm">http://www.kuaipan.cn/file/id_80676665698551.htm</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jcccn.github.com/resume/index.html" data-via="jcccn" data-counturl="http://jcccn.github.com/resume/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">jcccn</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T16:16:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jcccn.github.com/blog/a-trap-in-sharedpreferences/" data-via="jcccn" data-counturl="http://jcccn.github.com/blog/a-trap-in-sharedpreferences/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -175,9 +194,16 @@ E-mail：jccuestc@gmail.com
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/a-best-singleton-practice-in-java/" title="Previous Post: Java中单例模式的最佳实现——单元素的枚举类型">&laquo; Java中单例模式的最佳实现——单元素的枚举类型</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/skins-on-android/" title="Next Post: Android程序如何实现换肤？">Android程序如何实现换肤？ &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -302,8 +328,8 @@ E-mail：jccuestc@gmail.com
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://jcccn.github.com/resume/index.html';
-        var disqus_url = 'http://jcccn.github.com/resume/index.html';
+        var disqus_identifier = 'http://jcccn.github.com/blog/a-trap-in-sharedpreferences/';
+        var disqus_url = 'http://jcccn.github.com/blog/a-trap-in-sharedpreferences/';
         var disqus_script = 'embed.js';
       
     (function () {

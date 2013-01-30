@@ -1,111 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>jcccn</title>
-  <meta name="author" content="jcccn">
-
-  
-  <meta name="description" content="安卓上换肤可以通过那些方式来实现呢？ 源码下载地址：http://www.kuaipan.com.cn/file/id_80676665698552.htm 方式一：切换程序的语言版本。 原理：系统根据一定的规则去资源文件夹res下寻找资源。通过改变程序的配置（比如语言或者地区）， &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://jcccn.github.com/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="jcccn" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23184825-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">jcccn</a></h1>
-  
-    <h2>Concentrating on techniques and Thinking about What → How → Why</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:jcccn.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Category: android | jcccn]]></title>
+  <link href="http://jcccn.github.com/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://jcccn.github.com/"/>
+  <updated>2013-01-31T00:20:24+08:00</updated>
+  <id>http://jcccn.github.com/</id>
+  <author>
+    <name><![CDATA[jcccn]]></name>
     
-      <h1 class="entry-title"><a href="/blog/skins-on-android/">Android程序如何实现换肤？</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2012-07-16T11:51:00+08:00" pubdate data-updated="true">Jul 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>安卓上换肤可以通过那些方式来实现呢？</p>
+  <entry>
+    <title type="html"><![CDATA[Android程序如何实现换肤？]]></title>
+    <link href="http://jcccn.github.com/blog/skins-on-android/"/>
+    <updated>2012-07-16T11:51:00+08:00</updated>
+    <id>http://jcccn.github.com/blog/skins-on-android</id>
+    <content type="html"><![CDATA[<p>安卓上换肤可以通过那些方式来实现呢？</p>
 
 <p>源码下载地址：<a href="http://www.kuaipan.com.cn/file/id_80676665698552.htm">http://www.kuaipan.com.cn/file/id_80676665698552.htm</a></p>
 
@@ -153,42 +66,15 @@ this.onCreate(null); // 用于立即刷新界面
 
 
 <p>这种方式需要注意的一个地方就是内存管理的问题。一般是new一些bitmap或者BitmapDrawable之类的对象出来，在不再使用的时候要注意释放。一个思路是参照系统Resources类的管理方式，详细实现方式后面再研究研究。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/a-trap-in-sharedpreferences/">Android中的SharedPreferences陷阱</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-14T16:16:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>将保存SharedPreferences的xml文件删除了，能够彻底删除对应的SharedPreferences吗？</p>
+  <entry>
+    <title type="html"><![CDATA[Android中的SharedPreferences陷阱]]></title>
+    <link href="http://jcccn.github.com/blog/a-trap-in-sharedpreferences/"/>
+    <updated>2012-07-14T16:16:00+08:00</updated>
+    <id>http://jcccn.github.com/blog/a-trap-in-sharedpreferences</id>
+    <content type="html"><![CDATA[<p>将保存SharedPreferences的xml文件删除了，能够彻底删除对应的SharedPreferences吗？</p>
 
 <p>一次开发过程中，一个功能是需要将程序缓存清除掉，包括SharedPreferences文件。</p>
 
@@ -236,251 +122,15 @@ apply方法与commit方法的区别：前者先提交到内存中，再异步写
 <p>总结一下：要想及时并安全清除SharedPreferences一定要使用Editor去clear并commit，不要直接暴力地删除其xml文件。</p>
 
 <p>测试用的源代码(GBK编码)：<a href="http://www.kuaipan.cn/file/id_80676665698551.htm">http://www.kuaipan.cn/file/id_80676665698551.htm</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/a-best-singleton-practice-in-java/">Java中单例模式的最佳实现——单元素的枚举类型</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-14T16:13:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Inspired by Effective Java.</p>
-
-<p>Singleton模式是在编程实践中应用最广泛的几种设计模式之一。以前知道的，实现单例的方法有两种(下面的A、B)。刚刚在读《Effective Java的时候》学到一种新的更好的方法(E)：单元素的枚举类型。同时通过网上资料也知道了其他两种方法(C、D)。最后一种在Java中从1.5版本开始支持，其他语言在验证后说明。</p>
-
-<h4>A.饿汉式(类加载的时候就创建实例)。</h4>
-
-<p>代码如下：</p>
-
-<p><code>public class MaYun {
-public static final Mayun instance = new Mayun(); //静态的final的MaYun
-private MaYun() {
-//MaYun诞生要做的事情
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-}
-Call：MaYun.instance.splitAlipay();</code></p>
-
-<p>Feature：可以通过反射机制攻击；线程安全[多个类加载器除外]。</p>
-
-<h5>A+.饿汉变种[推荐]</h5>
-
-<p><code>public class MaYun {
-private static Mayun instance = new Mayun();
-private static getInstance() {
-return instance;
-}
-private MaYun() {
-//MaYun诞生要做的事情
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-}</code></p>
-
-<h5>A++.饿汉变种(类初始化的时候实例化instance)：</h5>
-
-<p><code>public class MaYun {
-private MaYun instance = null;
-static {
-instance = new MaYun();
-}
-private MaYun() {
-//MaYun诞生要做的事情
-}
-public static MaYun getInstance() {
-return this.instance;
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-}</code></p>
-
-<h4>B.懒汉式。</h4>
-
-<p>代码如下：</p>
-
-<p><code>public class MaYun {
-private static MaYun instance = null;
-private MaYun() {
-//MaYun诞生要做的事情
-}
-public static MaYun getInstance() {
-if (instance == null) {
-instance = new MaYun();
-}
-return instance;
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-}
-Call：MaYun.getInstance().splitAlipay();</code></p>
-
-<p>Feature:延时加载；线程不安全，多线程下不能正常工作；需要额外的工作(Serializable、transient、readResolve())来实现序列化。</p>
-
-<h5>B+.懒汉式变种。</h5>
-
-<p><code>public class MaYun {
-private static MaYun instance = null;
-private MaYun() {
-//MaYun诞生要做的事情
-}
-public static synchronized MaYun getInstance() {
-if (instance == null) {
-instance = new MaYun();
-}
-return instance;
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-}</code></p>
-
-<p>Feature:线程安全；效率比较低，因为需要线程同步的时候比较少。</p>
-
-<h4>C.静态内部类[推荐]。</h4>
-
-<p>代码如下：</p>
-
-<p><code>public class MaYun {
-private static class SigletonHolder {
-private static final instance = new MaYun();
-}
-public static final getInstance() {
-return SigletonHolder.instance;
-}
-private MaYun() {
-//MaYun诞生要做的事情
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-Call：MaYun.getInstance().splitAlipay();</code></p>
-
-<p>Feature:线程安全；延迟加载。</p>
-
-<h4>D.双重校验锁[不推荐]。</h4>
-
-<p>代码如下：</p>
-
-<p><code>public class MaYun {
-private volatile static MaYun instance;
-private MaYun (){}
-public static MaYun getInstance() {
-if (instance == null) {
-synchronized (MaYun.class) {
-if (instance == null) {
-instance = new MaYun();
-}
-}
-}
-return instance;
-}
-}
-</code>
-Feature：jdk1.5之后才能正常达到单例效果。</p>
-
-<h4>E.编写一个包含单个元素的枚举类型[极推荐]。</h4>
-
-<p>代码如下：</p>
-
-<p><code>public enum MaYun {
-himself; //定义一个枚举的元素，就代表MaYun的一个实例
-private String anotherField;
-MaYun() {
-//MaYun诞生要做的事情
-//这个方法也可以去掉。将构造时候需要做的事情放在instance赋值的时候：
-/** himself = MaYun() {
-* //MaYun诞生要做的事情
-* }
-**/
-}
-public void splitAlipay() {
-System.out.println(“Alipay是我的啦！看你丫Yahoo绿眉绿眼的望着。。。”);
-}
-}
-Call：MaYun.himself.splitAlipay();</code></p>
-
-<p>Feature:从Java1.5开始支持；无偿提供序列化机制，绝对防止多次实例化，即使在面对复杂的序列化或者反射攻击的时候。</p>
-
-<p>总之，五类：懒汉，恶汉，双重校验锁，静态内部类，枚举。</p>
-
-<ul>
-<li>恶汉：因为加载类的时候就创建实例，所以线程安全(多个ClassLoader存在时例外)。缺点是不能延时加载。</li>
-<li>懒汉：需要加锁才能实现多线程同步，但是效率会降低。优点是延时加载。</li>
-<li>双重校验锁：麻烦，在当前Java内存模型中不一定都管用，某些平台和编译器甚至是错误的，因为instance = new MaYun()这种代码在不同编译器上的行为和实现方式不可预知。</li>
-<li>静态内部类：延迟加载，减少内存开销。因为用到的时候才加载，避免了静态field在单例类加载时即进入到堆内存的permanent代而永远得不到回收的缺点(大多数垃圾回收算法是这样)。</li>
-<li>枚举：很好，不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。但是失去了类的一些特性，没有延迟加载，用的人也太少了～～</li>
-</ul>
-
-
-<p>以后多推广推广单元素枚举这种更好的单例实现方式。在项目中的代码开始修改实施。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/a-feature-guide-on-android/">一个Android程序中新手引导功能实现方式的变迁</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-14T16:12:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近做的一个项目中，引入了首次进入程序时的显示新手引导的功能，全屏显示，可以手指拖动左右翻页。效果类似于<a href="http://android.taobao.com/">淘宝Android客户端</a>3.0版本中新手引导的效果。</p>
+  <entry>
+    <title type="html"><![CDATA[一个Android程序中新手引导功能实现方式的变迁]]></title>
+    <link href="http://jcccn.github.com/blog/a-feature-guide-on-android/"/>
+    <updated>2012-07-14T16:12:00+08:00</updated>
+    <id>http://jcccn.github.com/blog/a-feature-guide-on-android</id>
+    <content type="html"><![CDATA[<p>最近做的一个项目中，引入了首次进入程序时的显示新手引导的功能，全屏显示，可以手指拖动左右翻页。效果类似于<a href="http://android.taobao.com/">淘宝Android客户端</a>3.0版本中新手引导的效果。</p>
 
 <p>下面说说这个需要全屏的新手引导都经历了一些什么变化吧：</p>
 
@@ -558,42 +208,15 @@ at android.app.ActivityThread.access$2300(ActivityThread.java:125)</code></p>
 <p>在处理onKeyDown，onTrackballEvent等事件的时候，需要判断是否新手引导存在来做处理，增加了复杂度。</p>
 
 <p>虽然最终的方案从功能上来说是最满足需求一个，但是还不完美。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/researching-about-android-drawable-resources/">对Android Drawable Resources的研究</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-14T16:11:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近一次在android开发时想在GridView被按下的时候改变item的图片。可以通过xml配置selector背景选择器来达到，但是有100个item我是不是就要写100个xml呢？肯定不能够这样！就想到通过java代码来实现selector的效果。于是，找到了StateListDrawable这个类，进而进出对Drawable Resources的深入研究。</p>
+  <entry>
+    <title type="html"><![CDATA[对Android Drawable Resources的研究]]></title>
+    <link href="http://jcccn.github.com/blog/researching-about-android-drawable-resources/"/>
+    <updated>2012-07-14T16:11:00+08:00</updated>
+    <id>http://jcccn.github.com/blog/researching-about-android-drawable-resources</id>
+    <content type="html"><![CDATA[<p>最近一次在android开发时想在GridView被按下的时候改变item的图片。可以通过xml配置selector背景选择器来达到，但是有100个item我是不是就要写100个xml呢？肯定不能够这样！就想到通过java代码来实现selector的效果。于是，找到了StateListDrawable这个类，进而进出对Drawable Resources的深入研究。</p>
 
 <blockquote><p>官方链接：<a href="http://developer.android.com/guide/topics/resources/drawable-resource.html">http://developer.android.com/guide/topics/resources/drawable-resource.html</a></p></blockquote>
 
@@ -739,169 +362,7 @@ android:right=”7dp”
 android:bottom=”7dp” /&gt;
 &lt;corners android:radius=”8dp” /&gt;
 &lt;/shape&gt;</code></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/skins-on-android/">Android程序如何实现换肤？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/a-trap-in-sharedpreferences/">Android中的SharedPreferences陷阱</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/a-best-singleton-practice-in-java/">Java中单例模式的最佳实现——单元素的枚举类型</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/a-feature-guide-on-android/">一个Android程序中新手引导功能实现方式的变迁</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/researching-about-android-drawable-resources/">对Android Drawable Resources的研究</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/jcccn">@jcccn</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'jcccn',
-            count: 5,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("jcccn", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/jcccn" class="twitter-follow-button" data-show-count="false">Follow @jcccn</a>
-  
-</section>
-
-
-<section>
-  <h1>On Delicious</h1>
-  <div id="delicious"></div>
-  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/jcccn?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
-  <p><a href="http://delicious.com/jcccn">My Delicious Bookmarks &raquo;</a></p>
-</section>
-
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/114018545694382484272?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - jcccn -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'jcccn';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

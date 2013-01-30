@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>对Android Drawable Resources的研究 - jcccn</title>
+  <meta name="author" content="jcccn">
+
+  
+  <meta name="description" content="最近一次在android开发时想在GridView被按下的时候改变item的图片。可以通过xml配置selector背景选择器来达到，但是有100个item我是不是就要写100个xml呢？肯定不能够这样！就想到通过java代码来实现selector的效果。于是， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jcccn.github.com/blog/researching-about-android-drawable-resources/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="jcccn" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23184825-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">jcccn</a></h1>
+  
+    <h2>Concentrating on techniques and Thinking about What → How → Why</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jcccn.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">对Android Drawable Resources的研究</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T16:11:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>最近一次在android开发时想在GridView被按下的时候改变item的图片。可以通过xml配置selector背景选择器来达到，但是有100个item我是不是就要写100个xml呢？肯定不能够这样！就想到通过java代码来实现selector的效果。于是，找到了StateListDrawable这个类，进而进出对Drawable Resources的深入研究。</p>
+
+<blockquote><p>官方链接：<a href="http://developer.android.com/guide/topics/resources/drawable-resource.html">http://developer.android.com/guide/topics/resources/drawable-resource.html</a></p></blockquote>
+
+<p>首先从字面上理解，绘图资源泛指可以画在屏幕上的东西。</p>
+
+<p>绘图资源可以分为以下几类：</p>
+
+<p>1、位图文件(BitmapDrawable)：位图图像文件，支持jpg、png、gif</p>
+
+<p>2、九片式图片(点9)文件(NinePatchDrawable)：可以拉伸的.9.png图片文件</p>
+
+<p>3、图层列表(LayerDrawable)：一组图片,，index越大的画在最顶层</p>
+
+<p>4、状态列表(StateListDrawable)：不同的状态(正常、按下、获得焦点等)对应不同的资源</p>
+
+<p>5、等级列表(LevelListDrawable)：一组绘图，每张绘图制定了不同的等级，只有符合设定的等级的绘图才显示</p>
+
+<p>6、过渡绘图(TransitionDrawable)：内部可以实现两张图片的渐隐渐现切换</p>
+
+<p>7、插入绘图(InsetDrawable)：使用另一个绘图资源，同时指定了其边距</p>
+
+<p>8、裁剪绘图(ClipDrawable)：可以从原资源上切割一部分显示</p>
+
+<p>9、缩放绘图(ScaleDrawable)：对另一个资源进行缩放</p>
+
+<p>10、形状(ShapeDrawable)：包含颜色和渐变的几何图形</p>
+
+<p>11、动画(AnimationDrawable)</p>
+
+<p>12、颜色(Color)：颜色也可以当做绘图资源使用</p>
+
+<p>位图：可以直接使用包含扩展名的文件名或者R引用作为资源ID。使用xml位图来定义一个指向原位图的引用，可以增加一些属性(比如抗锯齿antialias，抖动处理dither)，使用方法和位图图片文件一样。比如：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;bitmap xmlns:android=”http://schemas.android.com/apk/res/android”
+android:src=”@drawable/icon”
+android:tileMode=”repeat” /&gt;</code></p>
+
+<p>点9：可以对图片进行伸缩来适用View尺寸的改变。与位图类似，点九也可以创建对应的xml引用文件。比如</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;nine-patch xmlns:android=”http://schemas.android.com/apk/res/android”
+android:src=”@drawable/myninepatch”
+android:dither=”false” /&gt;</code></p>
+
+<p>图层列表：按照index的顺序来绘制。item必须是<selector>的子类，默认情况下回进行缩放来适应。xml中的定义方式如下：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;layer-list xmlns:android=”http://schemas.android.com/apk/res/android”&gt;
+&lt;item android:drawable=”@drawable/android_red” /&gt;
+&lt;item android:top=”10dp” android:left=”10dp”&gt;
+&lt;bitmap android:src=”@drawable/android_green”
+android:gravity=”center” /&gt;
+&lt;/item&gt;
+&lt;/layer-list&gt;</code></p>
+
+<p>状态列表：为每个资源item制定不同的状态。在匹配的时候，第一个与制定状态匹配的item被使用到，不一定是最优的，而是第一个。因此，一需要把默认选项放在最后一个位置。定义示例：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;selector xmlns:android=”http://schemas.android.com/apk/res/android”&gt;
+&lt;item android:state_pressed=”true”
+android:drawable=”@drawable/button_pressed” /&gt; &lt;!– pressed –&gt;
+&lt;item android:state_focused=”true”
+android:drawable=”@drawable/button_focused” /&gt; &lt;!– focused –&gt;
+&lt;item android:state_hovered=”true”
+android:drawable=”@drawable/button_focused” /&gt; &lt;!– hovered –&gt;
+&lt;item android:drawable=”@drawable/button_normal” /&gt; &lt;!– default –&gt;
+&lt;/selector&gt;</code></p>
+
+<p>级别列表：示例：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;level-list xmlns:android=”http://schemas.android.com/apk/res/android” &gt;
+&lt;item
+android:drawable=”@drawable/status_off”
+android:maxLevel=”0″ /&gt;
+&lt;item
+android:drawable=”@drawable/status_on”
+android:minLevel=”1″
+android:maxLevel=”2″ /&gt;
+&lt;/level-list&gt;</code></p>
+
+<p>过渡绘图：只支持最多2个drawable。例如</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;transition xmlns:android=”http://schemas.android.com/apk/res/android”&gt;
+&lt;item android:drawable=”@drawable/on” /&gt;
+&lt;item android:drawable=”@drawable/off” /&gt;
+&lt;/transition&gt;</code></p>
+
+<p>插入绘图：示例：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;inset xmlns:android=”http://schemas.android.com/apk/res/android”
+android:drawable=”@drawable/background”
+android:insetTop=”10dp”
+android:insetLeft=”10dp” /&gt;</code></p>
+
+<p>裁剪绘图：通过设置level来决定裁剪的大小。默认的是0(可见区域为0)，全部裁剪的level是10000。定义的示例：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;clip xmlns:android=”http://schemas.android.com/apk/res/android”
+android:drawable=”@drawable/android”
+android:clipOrientation=”horizontal”
+android:gravity=”left” /&gt;</code></p>
+
+<p>缩放绘图：定义如下：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;scale xmlns:android=”http://schemas.android.com/apk/res/android”
+android:drawable=”@drawable/logo”
+android:scaleGravity=”center_vertical|center_horizontal”
+android:scaleHeight=”80%”
+android:scaleWidth=”80%” /&gt;</code></p>
+
+<p>几何形状绘图：根节点为<shape>，包含的属性为shape(rectangle矩形|oval椭圆|line线条|ring环形)。当shape属性为ring时还有innerRadius、innerRadiusRatio、thickness、thicknessRatio、useLevel。它支持以下图形的组合：</p>
+
+<p><corners>圆角，在矩形的时候生效。注意bottomLeftRadius是右下角，bottomRightRadius是左下角。</p>
+
+<p><gradient>渐变。包含属性：angle,渐变的方向角度，必须是45的倍数，默认为0，即从左至右，逆时针计算角度；centerX,x的渐变中心位置，0~1.0；centerY，y方向的渐变中心位置；startColor、centerColor、endColor分别是渐变的开始、中间、结束颜色；type，渐变的类型(linear线性|radial中心放射性|sweep扇形)；gradientRadius，渐变半径，中心放射类型的渐变时生效；useLevel，是否作为等级绘图使用。</p>
+
+<p><padding>内边距。left、top、right、bottom四个方向。</p>
+
+<p><size>大小尺寸。height、width。</p>
+
+<p><solid>填充颜色。color。</p>
+
+<p><stroke>描边。包含属性：width，描边的粗细；color，描边的颜色；dashGap，dashWidth，两个一起使用，使用虚线描边，分别指虚线每条线
+的间距和长度。</p>
+
+<p>定义如下：</p>
+
+<p><code>&lt;?xml version=”1.0″ encoding=”utf-8″?&gt;
+&lt;shape xmlns:android=”http://schemas.android.com/apk/res/android”
+android:shape=”rectangle”&gt;
+&lt;gradient
+android:startColor=”#FFFF0000″
+android:endColor=”#80FF00FF”
+android:angle=”45″/&gt;
+&lt;padding android:left=”7dp”
+android:top=”7dp”
+android:right=”7dp”
+android:bottom=”7dp” /&gt;
+&lt;corners android:radius=”8dp” /&gt;
+&lt;/shape&gt;</code></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">jcccn</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T16:11:00+08:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jcccn.github.com/blog/researching-about-android-drawable-resources/" data-via="jcccn" data-counturl="http://jcccn.github.com/blog/researching-about-android-drawable-resources/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/reading-befriend-with-time/" title="Previous Post: 读书-《把时间当作朋友》by李笑来">&laquo; 读书-《把时间当作朋友》by李笑来</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/a-feature-guide-on-android/" title="Next Post: 一个Android程序中新手引导功能实现方式的变迁">一个Android程序中新手引导功能实现方式的变迁 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/skins-on-android/">Android程序如何实现换肤？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/a-trap-in-sharedpreferences/">Android中的SharedPreferences陷阱</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/a-best-singleton-practice-in-java/">Java中单例模式的最佳实现——单元素的枚举类型</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/a-feature-guide-on-android/">一个Android程序中新手引导功能实现方式的变迁</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/researching-about-android-drawable-resources/">对Android Drawable Resources的研究</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jcccn">@jcccn</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jcccn',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("jcccn", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/jcccn" class="twitter-follow-button" data-show-count="false">Follow @jcccn</a>
+  
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/jcccn?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/jcccn">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/114018545694382484272?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - jcccn -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'jcccn';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jcccn.github.com/blog/researching-about-android-drawable-resources/';
+        var disqus_url = 'http://jcccn.github.com/blog/researching-about-android-drawable-resources/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
