@@ -4,7 +4,7 @@
   <title><![CDATA[Category: about | jcccn]]></title>
   <link href="http://jcccn.github.com/blog/categories/about/atom.xml" rel="self"/>
   <link href="http://jcccn.github.com/"/>
-  <updated>2012-07-06T21:46:42+08:00</updated>
+  <updated>2013-01-31T00:20:24+08:00</updated>
   <id>http://jcccn.github.com/</id>
   <author>
     <name><![CDATA[jcccn]]></name>
@@ -14,10 +14,63 @@
 
   
   <entry>
+    <title type="html"><![CDATA[关于自己]]></title>
+    <link href="http://jcccn.github.com/blog/about-me/"/>
+    <updated>2012-07-14T15:00:00+08:00</updated>
+    <id>http://jcccn.github.com/blog/about-me</id>
+    <content type="html"><![CDATA[<p>常常被人称作春哥，虽然多是一些年龄比我大见识比我广的朋友。</p>
+
+<p>一个只有小半瓶水到处晃荡的程序员，浮浮沉沉。</p>
+
+<p>这些年，稀里糊涂，大学4年在脸部和屏幕的缝隙间流走，收获了一帮朋友，手艺活倒学得少些。</p>
+
+<p>噗啦噗啦，跟着创过业，经历了艰辛和喜悦，但是还是抵挡不住人性最终的规律。</p>
+
+<p>异地着，享受这分离和相聚的苦中有乐。</p>
+
+<p>工作着，看着自己的不足，自卑着，惭愧着，觉得对不起所在的位置。恶性循环着，在自责中重复。</p>
+
+<p>总是想把什么都抓住，强迫症般地分不清主次，想把什么事情都昨晚做美，常常因小失大，顾此失彼。</p>
+
+<p>恋旧，感慨童稚的年代没有享受和培养生活，把“如果以前……”挂在嘴边，后悔荒废了什么没有做什么却又做了什么。</p>
+
+<p>浮躁着，以前常说自己其实感兴趣的不是写程序和搞技术，而是创造产品。然而，某些时候却是自己写得出很好的代码，还把熬夜写代码当成家常便饭。产品，那么遥远。也许，仅仅是疲于生活的压力和与生俱来的惰性，不愿意去写代码的借口。有编码的时间，却在幻想中被浪费，本末倒置地YY着产品……</p>
+
+<p>知行不能合一，思维在摇晃，过得不如意，事事不顺心不顺眼。</p>
+
+<p>心胸时时狭隘，看到身边人的优秀，总在想着自己相差好远，油然嫉妒。其实，这与我何关？我不会因此失去什么，反而应该因身边人的优秀而欣慰。</p>
+
+<p>计划一个接着一个，然而实行下来的，却还真找不出来。</p>
+
+<p>做着一些无关紧要可做可不做的事情，耽误了正事，还在给自己找各种台阶下。</p>
+
+<p>消极地活着，宅着，懒于和朋友交流友谊，懒于对亲人加以关心，懒于去改变现实，却在现实的打击中停滞伤感。</p>
+
+<p>…………</p>
+
+<p>数落着各种不是，是不是应该尝试着改变些什么？</p>
+
+<p>想的东西，总要用行动来将它实现吧？</p>
+
+<p>至少目前还是程序员，应该多想想做做，干好自己的本职工作吧？</p>
+
+<p>技术水平不够，是不是应该学习吧，实践吧？</p>
+
+<p>如何学好呢，是不是要多实践，多总结，做分享吧？</p>
+
+<p>想要创新？先模仿吧！当能够把模仿的事情做得顺手拈来，创新难道不是水到渠成的吗？</p>
+
+<p>好的，现在就开始行动，没问题了吧！</p>
+
+<p>思所至，行所达！</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[test post]]></title>
-    <link href="http://jcccn.github.com/blog/2012/07/06/test-post/"/>
+    <link href="http://jcccn.github.com/blog/test-post/"/>
     <updated>2012-07-06T21:35:00+08:00</updated>
-    <id>http://jcccn.github.com/blog/2012/07/06/test-post</id>
+    <id>http://jcccn.github.com/blog/test-post</id>
     <content type="html"><![CDATA[<p>What you see is a test post for my new blog on Github.</p>
 
 <p>I will write some blogs about techniques here.</p>
